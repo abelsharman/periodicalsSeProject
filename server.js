@@ -27,6 +27,10 @@ app.get("/main", (req, res) => {
   res.sendFile(path + "index.html");
 });
 
+app.get("/reader", (req, res) => {    
+  res.sendFile(path + "index.html");
+});
+
 
 
 const PORT = process.env.PORT || 8080;

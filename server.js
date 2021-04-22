@@ -31,6 +31,14 @@ app.get("/reader", (req, res) => {
   res.sendFile(path + "index.html");
 });
 
+app.get("/periodicals", (req, res) => {    
+  res.sendFile(path + "index.html");
+});
+
+app.get("/periodical/:id", (req, res) => {    
+  res.sendFile(path + "index.html");
+});
+
 
 
 const PORT = process.env.PORT || 8080;

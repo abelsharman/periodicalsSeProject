@@ -39,6 +39,20 @@ app.get("/periodical/:id", (req, res) => {
   res.sendFile(path + "index.html");
 });
 
+app.get("/add", (req, res) => {    
+  res.sendFile(path + "index.html");
+});
+
+app.get("/readnow", (req, res) => {    
+  res.sendFile(path + "index.html");
+});
+
+
+app.get("/employee", (req, res) => {    
+  res.sendFile(path + "index.html");
+});
+
+
 
 
 const PORT = process.env.PORT || 8080;

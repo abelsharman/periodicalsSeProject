@@ -15,7 +15,7 @@ const Periodical = function(periodical) {
 
 
 Periodical.getAll = result => {
-    sql.query("SELECT * FROM Periodical;", (err, res) => {
+    sql.query("SELECT * FROM periodical;", (err, res) => {
       if (err) {
         console.log("error: ", err);
         result(null, err);
@@ -30,7 +30,7 @@ Periodical.getAll = result => {
 
 
 Periodical.findById = (periodical_id, result) => {
-  sql.query(`SELECT * FROM Periodical WHERE periodical_id = ${periodical_id}`, (err, res) => {
+  sql.query(`SELECT * FROM periodical WHERE periodical_id = ${periodical_id}`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -49,7 +49,7 @@ Periodical.findById = (periodical_id, result) => {
 
 
 Periodical.findByName = (name, result) => {
-  sql.query(`SELECT * FROM Periodical WHERE name like '%${name}%'`, (err, res) => {
+  sql.query(`SELECT * FROM periodical WHERE name like '%${name}%'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -63,7 +63,7 @@ Periodical.findByName = (name, result) => {
 
 
 Periodical.findByAuthor = (publisher, result) => {
-    sql.query(`SELECT * FROM Periodical WHERE publisher like '%${publisher}%'`, (err, res) => {
+    sql.query(`SELECT * FROM periodical WHERE publisher like '%${publisher}%'`, (err, res) => {
       if (err) {
         console.log("error: ", err);
         result(err, null);
@@ -78,7 +78,7 @@ Periodical.findByAuthor = (publisher, result) => {
 
 
 Periodical.findByAuthorAndName = (publisher, result) => {
-  sql.query(`SELECT * FROM Periodical WHERE publisher like '%${publisher}%' or name like '%${publisher}%'`, (err, res) => {
+  sql.query(`SELECT * FROM periodical WHERE publisher like '%${publisher}%' or name like '%${publisher}%'`, (err, res) => {
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -99,7 +99,7 @@ Periodical.create = (newPeriodical, result) => {
       return;
     }
 
-    console.log("created Periodical: ", { id: res.insertId, ...newPeriodical });
+    console.log("created periodical: ", { id: res.insertId, ...newPeriodical });
     result(null, { id: res.insertId, ...newPeriodical });
   });
 };

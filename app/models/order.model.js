@@ -106,7 +106,7 @@ Order.orderCount = (employee_id, result) => {
 
 
   Order.create = (newOrder, result) => {
-    sql.query("INSERT INTO Orders SET ?", newOrder, (err, res) => {
+    sql.query("INSERT INTO orders SET ?", newOrder, (err, res) => {
       if (err) {
         console.log("error: ", err);
         result(err, null);
@@ -168,7 +168,7 @@ Order.orderCount = (employee_id, result) => {
 
 
   Order.checkReading = (employee_id, result) => {
-    sql.query(`SELECT order_date from Orders where order_status = 'reading' and employee_id = ${employee_id};`, (err, res) => {
+    sql.query(`SELECT order_date from orders where order_status = 'reading' and employee_id = ${employee_id};`, (err, res) => {
       if (err) {
         console.log("error: ", err);
         result(err, null);

@@ -10,7 +10,7 @@ app.use(express.static(path));
 
 
 var corsOptions = {
-  origin: "http://localhost:8081"
+  origin: "*"
 };
 
 app.use(cors(corsOptions));

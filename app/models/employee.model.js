@@ -15,6 +15,7 @@ const Employee = function(employee) {
 
 Employee.login = (first_name, password, result) => {
   sql.query(`SELECT * FROM employee WHERE first_name = '${first_name}' and password='${password}';`, (err, res) => {
+    res.set('Access-Control-Allow-Origin', '*') 
     if (err) {
       console.log("error: ", err);
       result(err, null);
@@ -35,6 +36,7 @@ Employee.login = (first_name, password, result) => {
 
 Employee.getInfoEmployee = (employee_id, result) => {
   sql.query(`SELECT * FROM employee WHERE employee_id = ${employee_id};`, (err, res) => {
+    res.set('Access-Control-Allow-Origin', '*') 
     if (err) {
       console.log("error: ", err);
       result(err, null);

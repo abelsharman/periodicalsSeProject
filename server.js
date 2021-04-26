@@ -4,6 +4,15 @@ const cors = require("cors");
 
 const app = express();
 
+const fs = require('fs');
+const key = fs.readFileSync('./key.pem');
+const cert = fs.readFileSync('./cert.pem');
+
+const https = require('https');
+
+const server = https.createServer({key: key, cert: cert }, app);
+
+
 
 const path = __dirname + '/app/views/';
 app.use(express.static(path));
@@ -64,6 +73,6 @@ require("./app/routes/periodical.routes.js")(app);
 
 
 const PORT = process.env.PORT || 8080;
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}.`);
-});
+
+
+server.listen(PORT, () => { console.log('listening on 3001') });

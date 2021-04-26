@@ -10,7 +10,7 @@ app.use(express.static(path));
 
 
 var corsOptions = {
-  origin: "https://periodicals.abelsharman.kz/"
+  origin: "*"
 };
 
 app.use(cors(corsOptions));

@@ -53,6 +53,14 @@ app.get("/employee", (req, res) => {
 });
 
 
+app.get("/employee/:employee_id", (req, res) => {    
+  res.sendFile(path + "index.html");
+});
+
+
+require("./app/routes/periodical.routes.js")(app);
+
+
 
 
 const PORT = process.env.PORT || 8080;

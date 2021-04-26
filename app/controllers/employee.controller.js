@@ -4,6 +4,7 @@ const Employee = require("../models/employee.model.js");
 
 
   exports.login = (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*') 
     Employee.login(req.params.first_name, req.params.password, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
@@ -22,6 +23,7 @@ const Employee = require("../models/employee.model.js");
 
 
   exports.getInfoEmployee = (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*') 
     Employee.getInfoEmployee(req.params.employee_id, (err, data) => {
       if (err) {
         if (err.kind === "not_found") {
